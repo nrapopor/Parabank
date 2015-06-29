@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 1.4.2_04-b05 (Sun Microsystems Inc.)
+Specification-Title: HSQLDB
+Specification-Version: 1.8.1.3
+Specification-Vendor: The HSQLDB Development Group
+Implementation-Title: Standard runtime
+Implementation-Version: private-2010/06/23-14:07:26
+Implementation-Vendor: ft
+Main-Class: org.hsqldb.util.SqlTool
+
