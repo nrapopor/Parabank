@@ -12,6 +12,7 @@
     <property name="build.dir" value="build" />
     <property name="classes.dir" value="${build.dir}/classes" />
 	<property name="test-lib.dir" value="test-lib" />
+	<property name="lib.dir" value="lib" />
 	<property name="test-build.dir" value="test-build" />
 	<property name="test-classes.dir" value="${test-build.dir}/classes" />
     <property name="deploy.dir" value="deploy" />
@@ -23,6 +24,9 @@
 	
     <path id="compile.classpath">
     	<fileset dir="${web.lib.dir}">
+    	    <include name="**/*.jar" />
+    	</fileset>
+    	<fileset dir="${lib.dir}">
     	    <include name="**/*.jar" />
     	</fileset>
     </path>
