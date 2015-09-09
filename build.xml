@@ -54,7 +54,7 @@
         <mkdir dir="${build.dir}" />
         <mkdir dir="${classes.dir}" />
 
-        <javac srcdir="${source.dir}" destdir="${classes.dir}" debug="true" debuglevel="lines,vars,source" source="1.7" target="1.7"  >
+        <javac includeantruntime="false" srcdir="${source.dir}" destdir="${classes.dir}" debug="true" debuglevel="lines,vars,source" source="1.7" target="1.7"  >
             <classpath refid="compile.classpath" />
         </javac>
     	
