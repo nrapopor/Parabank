@@ -1,0 +1,433 @@
+swagger: '2.0'
+info:
+  title: bank
+  version: Unknown
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /accounts/{accountId}:
+    parameters:
+    - name: accountId
+      required: true
+      in: path
+      type: integer
+    get:
+      summary: Get Account details for accountId
+      description: "Get Account details for accountId.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /accounts/{accountId}/transactions:
+    parameters:
+    - name: accountId
+      required: true
+      in: path
+      type: integer
+    get:
+      summary: Get transaction details for accountId
+      description: "Get transaction details for accountId.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /accounts/{accountId}/transactions/amount/{amount}:
+    parameters:
+    - name: accountId
+      required: true
+      in: path
+      type: integer
+    - name: amount
+      required: true
+      in: path
+      type: string
+    get:
+      summary: Get transactions with amount for accountId
+      description: "Get transactions with amount for accountId.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /accounts/{accountId}/transactions/fromDate/{fromDate}/toDate/{toDate}:
+    parameters:
+    - name: accountId
+      required: true
+      in: path
+      type: integer
+    - name: fromDate
+      required: true
+      in: path
+      type: string
+    - name: toDate
+      required: true
+      in: path
+      type: string
+    get:
+      summary: Get transactions within a date range for accountId
+      description: "Get transactions within a date range for accountId.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /accounts/{accountId}/transactions/month/{month}/type/{type}:
+    parameters:
+    - name: accountId
+      required: true
+      in: path
+      type: integer
+    - name: month
+      required: true
+      in: path
+      type: string
+    - name: type
+      required: true
+      in: path
+      type: string
+    get:
+      summary: Get transactions of specific type within a month for accountId
+      description: "Get transactions of specific type within a month for accountId.\r\
+        \n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /accounts/{accountId}/transactions/onDate/{onDate}:
+    parameters:
+    - name: accountId
+      required: true
+      in: path
+      type: integer
+    - name: onDate
+      required: true
+      in: path
+      type: string
+    get:
+      summary: Get transactions of specific date for accountId
+      description: "Get transactions of specific date for accountId.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /cleanDB:
+    post:
+      summary: Clear out the database
+      description: "Clear out the database.\r\n"
+      produces: []
+      responses:
+        204:
+          description: >-
+            204 response
+  /createAccount:
+    post:
+      summary: Create new Account
+      description: "Create a new account of specified type for the customerId populate\
+        \ it with the money from the fromAccountId.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  ? /customers/update/{customerId}/{firstName}/{lastName}/{street}/{city}/{state}/{zipCode}/{phoneNumber}/{ssn}/{username}/{password}
+  : parameters:
+    - name: customerId
+      required: true
+      in: path
+      type: integer
+    - name: firstName
+      required: true
+      in: path
+      type: string
+    - name: lastName
+      required: true
+      in: path
+      type: string
+    - name: street
+      required: true
+      in: path
+      type: string
+    - name: city
+      required: true
+      in: path
+      type: string
+    - name: state
+      required: true
+      in: path
+      type: string
+    - name: zipCode
+      required: true
+      in: path
+      type: string
+    - name: phoneNumber
+      required: true
+      in: path
+      type: string
+    - name: ssn
+      required: true
+      in: path
+      type: string
+    - name: username
+      required: true
+      in: path
+      type: string
+    - name: password
+      required: true
+      in: path
+      type: string
+    post:
+      summary: Update customer information
+      description: "Update customer information.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /customers/{customerId}:
+    parameters:
+    - name: customerId
+      required: true
+      in: path
+      type: integer
+    get:
+      summary: Get customer information
+      description: "Get customer information.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /customers/{customerId}/accounts:
+    parameters:
+    - name: customerId
+      required: true
+      in: path
+      type: integer
+    get:
+      summary: Get customer accounts
+      description: "Get customer accounts.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /customers/{customerId}/buyPosition:
+    parameters:
+    - name: customerId
+      required: true
+      in: path
+      type: integer
+    post:
+      summary: Execute a buy order
+      description: "Execute a buy order.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /customers/{customerId}/positions:
+    parameters:
+    - name: customerId
+      required: true
+      in: path
+      type: integer
+    get:
+      summary: List positions for a customer
+      description: "List positions for a customer.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /customers/{customerId}/sellPosition:
+    parameters:
+    - name: customerId
+      required: true
+      in: path
+      type: integer
+    post:
+      summary: Execute a sell order
+      description: "Execute a sell order.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /deposit:
+    post:
+      summary: Deposit funds
+      description: "Deposit specified amount into specified account id.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /initializeDB:
+    post:
+      summary: Intialize database
+      description: "Intialize database with some accounts.\r\n"
+      produces: []
+      responses:
+        204:
+          description: >-
+            204 response
+  /login/{username}/{password}:
+    parameters:
+    - name: username
+      required: true
+      in: path
+      type: string
+    - name: password
+      required: true
+      in: path
+      type: string
+    get:
+      summary: Login
+      description: "Login into the Parabank (john/demo).\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /positions/{positionId}:
+    parameters:
+    - name: positionId
+      required: true
+      in: path
+      type: integer
+    get:
+      summary: Get Position
+      description: "Get Position by positionId.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /positions/{positionId}/{startDate}/{endDate}:
+    parameters:
+    - name: positionId
+      required: true
+      in: path
+      type: integer
+    - name: startDate
+      required: true
+      in: path
+      type: string
+    - name: endDate
+      required: true
+      in: path
+      type: string
+    get:
+      summary: Get Positions for a range of dates
+      description: "Get Position by positionId within a range of dates.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /requestLoan:
+    post:
+      summary: Request a loan
+      description: "Request a loan in the passed amount for a customerId with the\
+        \ downpayment from a specified account.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /setParameter/{name}/{value}:
+    parameters:
+    - name: name
+      required: true
+      in: path
+      type: string
+    - name: value
+      required: true
+      in: path
+      type: string
+    get:
+      summary: Set a parameter
+      description: "Set a parameter.\r\n"
+      produces: []
+      responses:
+        204:
+          description: >-
+            204 response
+  /shutdownJmsListener:
+    post:
+      summary: Shut down the JMS listener
+      description: "Shut down the JMS listener.\r\n"
+      produces: []
+      responses:
+        204:
+          description: >-
+            204 response
+  /startupJmsListener:
+    post:
+      summary: Start the JMS listener
+      description: "Start the JMS listener.\r\n"
+      produces: []
+      responses:
+        204:
+          description: >-
+            204 response
+  /transactions/{transactionId}:
+    parameters:
+    - name: transactionId
+      required: true
+      in: path
+      type: integer
+    get:
+      summary: Get Transacton by id
+      description: "Get Transacton by id.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /transfer:
+    post:
+      summary: Transfer funds
+      description: "Transfer the specified amount from one account to the other.\r\
+        \n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response
+  /withdraw:
+    post:
+      summary: Withdraw funds
+      description: "Withdraw funds.\r\n"
+      produces:
+      - application/json
+      responses:
+        200:
+          description: >-
+            200 response

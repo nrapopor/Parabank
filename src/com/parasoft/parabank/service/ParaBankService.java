@@ -1,20 +1,27 @@
 package com.parasoft.parabank.service;
 
+import io.swagger.annotations.ApiOperation;
+
 import java.math.BigDecimal;
 import java.util.List;
 
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
-import  org.apache.cxf.jaxrs.model.wadl.ElementClass;
+import org.apache.cxf.jaxrs.model.wadl.ElementClass;
 
 import com.parasoft.parabank.domain.Account;
 import com.parasoft.parabank.domain.Customer;
+import com.parasoft.parabank.domain.HistoryPoint;
 import com.parasoft.parabank.domain.LoanResponse;
 import com.parasoft.parabank.domain.Position;
-import com.parasoft.parabank.domain.HistoryPoint;
 import com.parasoft.parabank.domain.Transaction;
 
 
@@ -25,12 +32,20 @@ import com.parasoft.parabank.domain.Transaction;
 @Produces({"application/xml", "application/json"})
 @WebService(targetNamespace=ParaBankService.TNS)
 public interface ParaBankService {
-	    String TNS = "http://service.parabank.parasoft.com/";
+		public static final String DATABASE = "Database";
+		public static final String MISC = "Misc";
+		public static final String JMS = "JMS";
+		public static final String POSITIONS = "Positions";
+		public static final String TRANSACTIONS = "Transactions";
+		public static final String ACCOUNTS = "Accounts";
+		public static final String CUSTOMERS = "Customers";
+		String TNS = "http://service.parabank.parasoft.com/";
     
     /**
      * Reset database contents to a populated state 
      */
     @POST
+    @ApiOperation(value="Initialize the Database",tags={DATABASE})
     @Path("/initializeDB")
     void initializeDB();
    
@@ -38,6 +53,7 @@ public interface ParaBankService {
      * Reset database contents to a minimal state 
      */
     @POST
+    @ApiOperation(value="Clean the Database",tags={DATABASE})
     @Path("/cleanDB")
     void cleanDB();
     
@@ -45,6 +61,7 @@ public interface ParaBankService {
      * Enable JMS message listener 
      */
     @POST
+    @ApiOperation(value="Start JMS Listener",tags={JMS})
     @Path("/startupJmsListener")
     void startupJmsListener();
     
@@ -52,6 +69,7 @@ public interface ParaBankService {
      * Disable JMS message listener 
      */
     @POST
+    @ApiOperation(value="Stop JMS Listener",tags={JMS})
     @Path("/shutdownJmsListener")
     void shutdownJmsListener();
     
@@ -62,6 +80,7 @@ public interface ParaBankService {
      * @param value the value to set
      */
     @GET
+    @ApiOperation(value="Set Parameters",tags={MISC})
     @Path("/setParameter/{name}/{value}")
     void setParameter(
     	@PathParam("name")
@@ -79,6 +98,7 @@ public interface ParaBankService {
      * @throws ParaBankServiceException
      */
     @GET
+    @ApiOperation(value="Login (john/demo)",tags={MISC})
     @Path("/login/{username}/{password}")
     @Produces({"application/xml","application/json"})   
     @WebResult(name="customerId", targetNamespace=TNS)
@@ -99,6 +119,7 @@ public interface ParaBankService {
      */
     @GET
     @Path("/customers/{customerId}")
+    @ApiOperation(value="Get Customer Details",tags={CUSTOMERS})
     @WebResult(name="customer", targetNamespace=TNS)
     Customer getCustomer(
         @PathParam("customerId")
@@ -114,6 +135,7 @@ public interface ParaBankService {
      * @throws ParaBankServiceException
      */
     @GET
+    @ApiOperation(value="Get Customer Accounts",tags={CUSTOMERS, ACCOUNTS})
     @Path("/customers/{customerId}/accounts")
     @WebResult(name="account", targetNamespace=TNS)
     List<Account> getAccounts(
@@ -130,6 +152,7 @@ public interface ParaBankService {
      */
     @GET
     @Path("/accounts/{accountId}")
+    @ApiOperation(value="Get Account by Id",tags={ACCOUNTS})
     @WebResult(name="account", targetNamespace=TNS)
     Account getAccount(
         @PathParam("accountId")
@@ -146,6 +169,7 @@ public interface ParaBankService {
      */
     @GET
     @Path("/customers/{customerId}/positions")
+    @ApiOperation(value="Get Positions for Customer",tags={CUSTOMERS, POSITIONS})
     @WebResult(name="position", targetNamespace=TNS)
     List<Position> getPositions(
         @PathParam("customerId")
@@ -160,6 +184,7 @@ public interface ParaBankService {
      * @throws ParaBankServiceException
      */
     @GET
+    @ApiOperation(value="Get Position by id",tags={POSITIONS})
     @Path("/positions/{positionId}")
     @WebResult(name="position", targetNamespace=TNS)
     Position getPosition(
@@ -180,6 +205,7 @@ public interface ParaBankService {
      */
     @GET
     @Path("/positions/{positionId}/{startDate}/{endDate}")
+    @ApiOperation(value="Get Position history by id within a date range",tags={POSITIONS})
     @WebResult(name="historyPoint", targetNamespace=TNS)
     List<HistoryPoint> getPositionHistory(
         @PathParam("positionId")
@@ -202,6 +228,7 @@ public interface ParaBankService {
      */
     @POST
     @Path("/customers/{customerId}/buyPosition")
+    @ApiOperation(value="Buy a Position",tags={POSITIONS})
     @WebResult(name="position", targetNamespace=TNS)
     List<Position> buyPosition(
         @PathParam("customerId")
@@ -231,6 +258,7 @@ public interface ParaBankService {
      */
     @POST
     @Path("/customers/{customerId}/sellPosition")
+    @ApiOperation(value="Sell a Position",tags={POSITIONS})
     @WebResult(name="position", targetNamespace=TNS)
     List<Position> sellPosition(
         @PathParam("customerId")
@@ -254,6 +282,7 @@ public interface ParaBankService {
      */
     @GET
     @Path("/accounts/{accountId}/transactions")
+    @ApiOperation(value="Get the list of Transactions for the account",tags={ACCOUNTS, TRANSACTIONS})
     @WebResult(name="transaction", targetNamespace=TNS)
     List <Transaction> getTransactions(
         @PathParam("accountId")
@@ -268,6 +297,7 @@ public interface ParaBankService {
      * @throws ParaBankServiceException
      */
     @GET
+    @ApiOperation(value="Get the transaction for the id",tags={TRANSACTIONS})
     @Path("/transactions/{transactionId}")
     @WebResult(name="transaction", targetNamespace=TNS)
     @ElementClass(response = Transaction.class)
@@ -286,6 +316,7 @@ public interface ParaBankService {
      */
     @POST
     @Path("/deposit")
+    @ApiOperation(value="Deposit funds",tags={ACCOUNTS})
     @WebResult(name="depositReturn", targetNamespace=TNS)
     String deposit(
         @QueryParam("accountId")
@@ -304,6 +335,7 @@ public interface ParaBankService {
      */
     @POST
     @Path("/withdraw")
+    @ApiOperation(value="Withdraw funds",tags={ACCOUNTS})
     @WebResult(name="withdrawReturn", targetNamespace=TNS)
     String withdraw(
         @QueryParam("accountId")
@@ -323,6 +355,7 @@ public interface ParaBankService {
      */
     @POST
     @Path("/transfer")
+    @ApiOperation(value="Transfer funds",tags={ACCOUNTS})
     @WebResult(name="transferReturn", targetNamespace=TNS)
     String transfer(
         @QueryParam("fromAccountId")
@@ -344,6 +377,7 @@ public interface ParaBankService {
      */
     @POST
     @Path("/requestLoan")
+    @ApiOperation(value="Request a loan",tags={"Loans"})
     @WebResult(name="loanResponse", targetNamespace=TNS)
     LoanResponse requestLoan(
         @QueryParam("customerId")
@@ -359,6 +393,7 @@ public interface ParaBankService {
     
     @POST
     @Path("/createAccount")
+    @ApiOperation(value="Create a new account",tags={CUSTOMERS, ACCOUNTS})
     @WebResult(name="account", targetNamespace=TNS)
     public Account createAccount(
     	@QueryParam("customerId")
@@ -372,6 +407,7 @@ public interface ParaBankService {
     
     @GET
     @Path("/accounts/{accountId}/transactions/onDate/{onDate}")
+    @ApiOperation(value="Create transactions by date for account",tags={ACCOUNTS, TRANSACTIONS})
     @WebResult(name="transaction", targetNamespace=TNS)
     public List <Transaction> getTransactionsOnDate(
             @PathParam("accountId")
@@ -383,6 +419,7 @@ public interface ParaBankService {
     
     @GET
     @Path("/accounts/{accountId}/transactions/fromDate/{fromDate}/toDate/{toDate}")
+    @ApiOperation(value="Create transactions for date range for account",tags={ACCOUNTS, TRANSACTIONS})
     @WebResult(name="transaction", targetNamespace=TNS)
     public List <Transaction> getTransactionsByToFromDate(
             @PathParam("accountId")
@@ -396,6 +433,7 @@ public interface ParaBankService {
     
     @GET
     @Path("/accounts/{accountId}/transactions/amount/{amount}")
+    @ApiOperation(value="Create transactions by amount for account",tags={ACCOUNTS, TRANSACTIONS})
     @WebResult(name="transaction", targetNamespace=TNS)
     public List <Transaction> getTransactionsByAmount(
             @PathParam("accountId")
@@ -407,6 +445,7 @@ public interface ParaBankService {
     
     @GET
     @Path("/accounts/{accountId}/transactions/month/{month}/type/{type}")
+    @ApiOperation(value="Create transactions by month and type for account",tags={ACCOUNTS, TRANSACTIONS})
     @WebResult(name="transaction", targetNamespace=TNS)
     public List<Transaction> getTransactionsByMonthAndType(
     		@PathParam("accountId")
@@ -420,6 +459,7 @@ public interface ParaBankService {
     
     @POST
     @Path("/customers/update/{customerId}/{firstName}/{lastName}/{street}/{city}/{state}/{zipCode}/{phoneNumber}/{ssn}/{username}/{password}")
+    @ApiOperation(value="Update customer information",tags={CUSTOMERS})
     @WebResult(name="customerUpdateResult", targetNamespace=TNS)
     public String updateCustomer(@PathParam("customerId")
     							 @WebParam(name="customerId", targetNamespace=TNS) int customerId, 

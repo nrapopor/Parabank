@@ -5,6 +5,7 @@ import java.math.*;
 
 public class ProductInfo implements Serializable
 {
+	private static final long serialVersionUID = 1L;
     private int id;
     private String title;
     private int quantity_in_stock;

@@ -19,6 +19,7 @@ import org.apache.cxf.jaxrs.utils.InjectionUtils;
 
 public class WadlGeneratorExtended extends WadlGenerator  implements RequestHandler{
 	
+	@SuppressWarnings("unused")
 	private void handleRepresentation(StringBuilder sb, Set<Class<?>> jaxbTypes, 
 			                                      ElementQNameResolver qnameResolver,
 			                                     Map<Class<?>, QName> clsMap, OperationResourceInfo ori, 

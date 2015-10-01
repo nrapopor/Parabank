@@ -1,5 +1,11 @@
 package com.parasoft.parabank.util;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hsqldb.Server;
@@ -8,15 +14,6 @@ import org.hsqldb.ServerConstants;
 import org.hsqldb.persist.HsqlProperties;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-
-import javax.sql.DataSource;
-
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.Properties;
 
 /**
  * Utility bean for embedding HSQLDB into the ParaBank application

@@ -1,0 +1,144 @@
+INFO:wadls/bank.xml:Converting: wadls/bank.xml to swagger/bank.yaml
+DEBUG:wadls/bank.xml:Reading WADL from wadls/bank.xml
+DEBUG:wadls/bank.xml:  Processing resource for /accounts/{accountId}
+DEBUG:wadls/bank.xml:Found param: accountId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (accountId)
+DEBUG:wadls/bank.xml:    Processing method get /accounts/{accountId}
+DEBUG:wadls/bank.xml:  Processing resource for /accounts/{accountId}/transactions
+DEBUG:wadls/bank.xml:Found param: accountId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (accountId)
+DEBUG:wadls/bank.xml:    Processing method get /accounts/{accountId}/transactions
+DEBUG:wadls/bank.xml:  Processing resource for /accounts/{accountId}/transactions/amount/{amount}
+DEBUG:wadls/bank.xml:Found param: accountId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (accountId)
+DEBUG:wadls/bank.xml:Found param: amount
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (amount)
+DEBUG:wadls/bank.xml:    Processing method get /accounts/{accountId}/transactions/amount/{amount}
+DEBUG:wadls/bank.xml:  Processing resource for /accounts/{accountId}/transactions/fromDate/{fromDate}/toDate/{toDate}
+DEBUG:wadls/bank.xml:Found param: accountId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (accountId)
+DEBUG:wadls/bank.xml:Found param: fromDate
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (fromDate)
+DEBUG:wadls/bank.xml:Found param: toDate
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (toDate)
+DEBUG:wadls/bank.xml:    Processing method get /accounts/{accountId}/transactions/fromDate/{fromDate}/toDate/{toDate}
+DEBUG:wadls/bank.xml:  Processing resource for /accounts/{accountId}/transactions/month/{month}/type/{type}
+DEBUG:wadls/bank.xml:Found param: accountId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (accountId)
+DEBUG:wadls/bank.xml:Found param: month
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (month)
+DEBUG:wadls/bank.xml:Found param: type
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (type)
+DEBUG:wadls/bank.xml:    Processing method get /accounts/{accountId}/transactions/month/{month}/type/{type}
+DEBUG:wadls/bank.xml:  Processing resource for /accounts/{accountId}/transactions/onDate/{onDate}
+DEBUG:wadls/bank.xml:Found param: accountId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (accountId)
+DEBUG:wadls/bank.xml:Found param: onDate
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (onDate)
+DEBUG:wadls/bank.xml:    Processing method get /accounts/{accountId}/transactions/onDate/{onDate}
+DEBUG:wadls/bank.xml:  Processing resource for /cleanDB
+WARNING:wadls/bank.xml:No support for application/json for resource at /cleanDB
+DEBUG:wadls/bank.xml:    Processing method post /cleanDB
+DEBUG:wadls/bank.xml:  Processing resource for /createAccount
+WARNING:wadls/bank.xml:No support for application/json for resource at /createAccount
+DEBUG:wadls/bank.xml:    Processing method post /createAccount
+DEBUG:wadls/bank.xml:  Processing resource for /customers/update/{customerId}/{firstName}/{lastName}/{street}/{city}/{state}/{zipCode}/{phoneNumber}/{ssn}/{username}/{password}
+WARNING:wadls/bank.xml:No support for application/json for resource at /customers/update/{customerId}/{firstName}/{lastName}/{street}/{city}/{state}/{zipCode}/{phoneNumber}/{ssn}/{username}/{password}
+DEBUG:wadls/bank.xml:Found param: customerId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (customerId)
+DEBUG:wadls/bank.xml:Found param: firstName
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (firstName)
+DEBUG:wadls/bank.xml:Found param: lastName
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (lastName)
+DEBUG:wadls/bank.xml:Found param: street
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (street)
+DEBUG:wadls/bank.xml:Found param: city
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (city)
+DEBUG:wadls/bank.xml:Found param: state
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (state)
+DEBUG:wadls/bank.xml:Found param: zipCode
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (zipCode)
+DEBUG:wadls/bank.xml:Found param: phoneNumber
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (phoneNumber)
+DEBUG:wadls/bank.xml:Found param: ssn
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (ssn)
+DEBUG:wadls/bank.xml:Found param: username
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (username)
+DEBUG:wadls/bank.xml:Found param: password
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (password)
+DEBUG:wadls/bank.xml:    Processing method post /customers/update/{customerId}/{firstName}/{lastName}/{street}/{city}/{state}/{zipCode}/{phoneNumber}/{ssn}/{username}/{password}
+DEBUG:wadls/bank.xml:  Processing resource for /customers/{customerId}
+DEBUG:wadls/bank.xml:Found param: customerId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (customerId)
+DEBUG:wadls/bank.xml:    Processing method get /customers/{customerId}
+DEBUG:wadls/bank.xml:  Processing resource for /customers/{customerId}/accounts
+DEBUG:wadls/bank.xml:Found param: customerId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (customerId)
+DEBUG:wadls/bank.xml:    Processing method get /customers/{customerId}/accounts
+DEBUG:wadls/bank.xml:  Processing resource for /customers/{customerId}/buyPosition
+WARNING:wadls/bank.xml:No support for application/json for resource at /customers/{customerId}/buyPosition
+DEBUG:wadls/bank.xml:Found param: customerId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (customerId)
+DEBUG:wadls/bank.xml:    Processing method post /customers/{customerId}/buyPosition
+DEBUG:wadls/bank.xml:  Processing resource for /customers/{customerId}/positions
+DEBUG:wadls/bank.xml:Found param: customerId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (customerId)
+DEBUG:wadls/bank.xml:    Processing method get /customers/{customerId}/positions
+DEBUG:wadls/bank.xml:  Processing resource for /customers/{customerId}/sellPosition
+WARNING:wadls/bank.xml:No support for application/json for resource at /customers/{customerId}/sellPosition
+DEBUG:wadls/bank.xml:Found param: customerId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (customerId)
+DEBUG:wadls/bank.xml:    Processing method post /customers/{customerId}/sellPosition
+DEBUG:wadls/bank.xml:  Processing resource for /deposit
+WARNING:wadls/bank.xml:No support for application/json for resource at /deposit
+DEBUG:wadls/bank.xml:    Processing method post /deposit
+DEBUG:wadls/bank.xml:  Processing resource for /initializeDB
+WARNING:wadls/bank.xml:No support for application/json for resource at /initializeDB
+DEBUG:wadls/bank.xml:    Processing method post /initializeDB
+DEBUG:wadls/bank.xml:  Processing resource for /login/{username}/{password}
+DEBUG:wadls/bank.xml:Found param: username
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (username)
+DEBUG:wadls/bank.xml:Found param: password
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (password)
+DEBUG:wadls/bank.xml:    Processing method get /login/{username}/{password}
+DEBUG:wadls/bank.xml:  Processing resource for /positions/{positionId}
+DEBUG:wadls/bank.xml:Found param: positionId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (positionId)
+DEBUG:wadls/bank.xml:    Processing method get /positions/{positionId}
+DEBUG:wadls/bank.xml:  Processing resource for /positions/{positionId}/{startDate}/{endDate}
+DEBUG:wadls/bank.xml:Found param: positionId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (positionId)
+DEBUG:wadls/bank.xml:Found param: startDate
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (startDate)
+DEBUG:wadls/bank.xml:Found param: endDate
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (endDate)
+DEBUG:wadls/bank.xml:    Processing method get /positions/{positionId}/{startDate}/{endDate}
+DEBUG:wadls/bank.xml:  Processing resource for /requestLoan
+WARNING:wadls/bank.xml:No support for application/json for resource at /requestLoan
+DEBUG:wadls/bank.xml:    Processing method post /requestLoan
+DEBUG:wadls/bank.xml:  Processing resource for /setParameter/{name}/{value}
+WARNING:wadls/bank.xml:No support for application/json for resource at /setParameter/{name}/{value}
+DEBUG:wadls/bank.xml:Found param: name
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (name)
+DEBUG:wadls/bank.xml:Found param: value
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (value)
+DEBUG:wadls/bank.xml:    Processing method get /setParameter/{name}/{value}
+DEBUG:wadls/bank.xml:  Processing resource for /shutdownJmsListener
+WARNING:wadls/bank.xml:No support for application/json for resource at /shutdownJmsListener
+DEBUG:wadls/bank.xml:    Processing method post /shutdownJmsListener
+DEBUG:wadls/bank.xml:  Processing resource for /startupJmsListener
+WARNING:wadls/bank.xml:No support for application/json for resource at /startupJmsListener
+DEBUG:wadls/bank.xml:    Processing method post /startupJmsListener
+DEBUG:wadls/bank.xml:  Processing resource for /transactions/{transactionId}
+DEBUG:wadls/bank.xml:Found param: transactionId
+WARNING:wadls/bank.xml:Autofix: path parameters must be required in Swagger (transactionId)
+DEBUG:wadls/bank.xml:    Processing method get /transactions/{transactionId}
+DEBUG:wadls/bank.xml:  Processing resource for /transfer
+WARNING:wadls/bank.xml:No support for application/json for resource at /transfer
+DEBUG:wadls/bank.xml:    Processing method post /transfer
+DEBUG:wadls/bank.xml:  Processing resource for /withdraw
+WARNING:wadls/bank.xml:No support for application/json for resource at /withdraw
+DEBUG:wadls/bank.xml:    Processing method post /withdraw
+INFO:root:Saving swagger to swagger/bank.yaml
+INFO:root:
+INFO:root:Successfully converted all WADL files

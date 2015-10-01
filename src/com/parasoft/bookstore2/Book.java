@@ -5,6 +5,7 @@ import java.math.*;
 import java.util.*;
 
 public class Book implements Serializable{
+	private static final long serialVersionUID = 1L;
     protected String isbn;
     protected String genre;
     protected Date publication_date;

@@ -107,7 +107,8 @@ public class FindTransactionController extends AbstractValidatingBankController 
         
         if (accessMode != null && !accessMode.equalsIgnoreCase("jdbc") )
         {
-        	Integer transactionId = findTransactionForm.getCriteria().getTransactionId();
+        	@SuppressWarnings("unused")
+			Integer transactionId = findTransactionForm.getCriteria().getTransactionId();
 
         	transactions = accessModeController.getTransactionsForAccount(account,
     												findTransactionForm.getCriteria());
